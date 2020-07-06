@@ -11,6 +11,7 @@ django-rest-framework = "*"
 pylint = "*"
 autopep8 = "*"
 pylint-django = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.6"
