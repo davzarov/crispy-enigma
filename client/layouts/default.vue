@@ -1,10 +1,5 @@
 <template>
-  <div>
-    <Navigation />
-    <b-container fluid>
-      <Nuxt />
-    </b-container>
-  </div>
+  <Nuxt />
 </template>
 
 <script>
