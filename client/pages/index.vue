@@ -1,9 +1,14 @@
 <template>
   <div class="vh-100 d-flex">
     <!-- sidebar column -->
-    <Sidebar :carpetas="carpetas" :etiquetas="etiquetas" :snippets="snippets" />
+    <Sidebar
+      :carpetas="carpetas"
+      :etiquetas="etiquetas"
+      :snippets="snippets"
+      @selectedSnippet="showSnippet"
+    />
     <!-- content column -->
-    <Content />
+    <Content :snippet="snippet" />
   </div>
 </template>
 
@@ -42,6 +47,7 @@ export default {
           Delectus porro officiis quo ullam eius culpa.`,
       },
     ],
+    snippet: {},
     carpetas: [
       { id: 1, titulo: 'Mi Carpeta' },
       { id: 2, titulo: 'Python' },
@@ -57,6 +63,11 @@ export default {
       { id: 6, titulo: 'Vue.js' },
     ],
   }),
+  methods: {
+    showSnippet(snippetId) {
+      this.snippet = this.snippets.find((snippet) => snippet.id === snippetId)
+    },
+  },
 }
 </script>
 

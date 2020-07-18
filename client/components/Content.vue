@@ -31,8 +31,18 @@
           </b-button>
         </div>
       </div>
+      <div
+        v-if="Object.keys(snippet).length > 0"
+        class="d-flex flex-column align-items-center mt-5"
+      >
+        <pre>{{ snippet.id }}</pre>
+        <pre>{{ snippet.titulo }}</pre>
+        <pre>{{ snippet.lenguaje }}</pre>
+        <pre>{{ snippet.creado }}</pre>
+        <pre>{{ snippet.contenido }}</pre>
+      </div>
       <!-- if empty: empty template -->
-      <div class="d-flex flex-column align-items-center mt-5">
+      <div v-else class="d-flex flex-column align-items-center mt-5">
         <!-- icon -->
         <div class="pt-3 px-2">
           <b-icon
@@ -49,13 +59,19 @@
           </p>
         </div>
       </div>
-      <!-- else: content template -->
     </div>
   </main>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    snippet: {
+      type: Object,
+      required: true,
+    },
+  },
+}
 </script>
 
 <style></style>
